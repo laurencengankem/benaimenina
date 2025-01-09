@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nina&Ben</title>
+    <title>Nina & Ben</title>
     <style>
         body, html {
             margin: 0;
@@ -40,9 +40,9 @@
 
         .content .story-container {
             opacity: 0; /* Hidden by default */
-	    font-size: 120%;
+            font-size: 120%;
             transform: translateY(20px); /* Start slightly below */
-            transition: opacity 1.7s ease-in-out, transform 1.5s ease-in-out; /* Smooth fade and slide-in */
+            transition: opacity 1.6s ease-in-out, transform 1.5s ease-in-out; /* Smooth fade and slide-in */
         }
 
         .content .story-container.show {
@@ -50,7 +50,7 @@
             transform: translateY(0); /* Move to original position */
         }
 
-	button{
+        button{
 	    width: 200px;
 	    height: 60px;
 	    font-size: 60%;
@@ -59,24 +59,14 @@
 	    margin-bottom: 5px;
 	    border-radius: 5px;
 	}
-
     </style>
 </head>
 <body>
-
-   <button id="start-audio" 
-        style="position: fixed; top: 10px; left: 10px; z-index: 1000; 
-               width: 50px; height: 50px; 
-	       background-color: white;
-               background-image: url('muted-audio.png'); 
-               background-size: cover; border: none; cursor: pointer;">
-    </button>
-
     <audio id="background-audio" loop>
         <source src="backtrack.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-	
+
     <!-- Background Video -->
     <video id="background-video" autoplay loop muted>
         <source src="hearts.mp4" type="video/mp4">
@@ -84,8 +74,7 @@
     </video>
 
     <!-- Content Over Video -->
-
-    <div class="content" style="display:none" id="confirmation">
+     <div class="content" style="display:none" id="confirmation">
        <h3 style="font-size:90%">Union<br> Nina & Ben</h3>
        <span>Serez vous de la partie?</span><br><br>
        <div>
@@ -99,13 +88,20 @@
         <!-- Sentences will be injected here by JavaScript -->
     </div>
 
+    <button id="start-audio" 
+        style="position: fixed; top: 10px; left: 10px; z-index: 1000; 
+               width: 50px; height: 50px; 
+	       background-color: white;
+               background-image: url('muted-audio.png'); 
+               background-size: cover; border: none; cursor: pointer;">
+    </button>
 
     <script>
         const sentences = [
             "Il était une fois <br> Nina & Ben",
             "Après de nombreuses années de célibat, de jachère et de coups de tête violents réçus,",
             "Ben fit la connaissance de Nina.",
-	    "Il tomba tout suite sous son charme.",
+            "Il tomba tout de suite sous son charme.",
             "Chasseur de son état, et désespéré de surcroît, il ne put se retenir de courtiser une telle beauté.",
             "Face à un tel désespoir, Nina ne put s'empêcher d'apporter son aide à un compatriote en détresse.",
             "C'est ainsi que cette histoire, qui au départ n'était qu'une histoire d'aide, se transforma en une belle histoire d'amour.",
@@ -113,7 +109,7 @@
             "Aujourd'hui, vous êtes conviés à la célébration de l'union de <br> Nina et Ben."
         ];
 
-	const storyContainer = document.getElementById('story');
+        const storyContainer = document.getElementById('story');
         const audio = document.getElementById('background-audio');
         const video = document.getElementById('background-video');
         const startButton = document.getElementById('start-audio');
@@ -128,13 +124,12 @@
                 console.error("Failed to start audio:", err);
             });
         });
-        let index = 0;
 
         function showSentence() {
             // Create a span for the sentence
             const span = document.createElement('span');
             span.classList.add('story-container');
-            span.innerHTML= sentences[index];
+            span.innerHTML = sentences[index];
             storyContainer.appendChild(span);
 
             // Show the sentence
@@ -149,16 +144,18 @@
                     if (index < sentences.length) {
                         showSentence(); // Show the next sentence
                     }
-                },1700); // Wait for fade-out to complete
+                }, 1700); // Wait for fade-out to complete
             }, 4000); // Increase the time before the next sentence starts
         }
 
         // Start storytelling
         showSentence();
-	setTimeout(()=>{
-	    const confirmationContainer = document.getElementById('confirmation');
-            confirmationContainer.style.display="block";
-	},54000)
+
+        // Show confirmation content after storytelling
+        setTimeout(() => {
+            const confirmationContainer = document.getElementById('confirmation');
+            confirmationContainer.style.display = "block";
+        }, 49000);
     </script>
 </body>
 </html>
