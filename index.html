@@ -100,22 +100,22 @@
                                 <div id="navbar" class="collapse navbar-collapse navigation-holder">
                                     <button class="menu-close"><i class="ti-close"></i></button>
                                     <ul class="nav navbar-nav mb-2 mb-lg-0">
-                                        <li class="menu-item-has-children">
+                                        <li class="menu-item">
                                             <a href="#couple">Couple</a>
                                         </li>
-                                        <li class="menu-item-has-children">
+                                        <li class="menu-item">
                                             <a  href="#story">Histoire</a>
                                         </li>
-                                        <li class="menu-item-has-children">
+                                        <li class="menu-item">
                                             <a  href="#event">Programme</a>
                                         </li>
-                                        <li class="menu-item-has-children">
+                                        <li class="menu-item">
                                             <a href="#enregistrement">Enregistrement</a>
                                         </li>
-                                        <li class="menu-item-has-children">
+                                        <li class="menu-item">
                                             <a href="#gallery">Gallerie</a>
                                         </li>
-                                        <li class="menu-item-has-children">
+                                        <li class="menu-item">
                                             <a  href="#contact">Contact</a>
                                         </li>
                                     </ul>
@@ -825,6 +825,18 @@
                 button7.click();
             }
         });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuItems = document.querySelectorAll(".menu-item a");
+            const menuCloseButton = document.querySelector(".menu-close");
+
+            menuItems.forEach(item => {
+                item.addEventListener("click", function () {
+                    menuCloseButton.click();
+                });
+            });
+        });
+
     </script>
 </body>
 
