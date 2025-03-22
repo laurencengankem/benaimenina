@@ -802,6 +802,15 @@
         // Set target date to July 25, 2025
         const targetDate = new Date("July 25, 2025 00:00:00").getTime();
         startCountdown(targetDate);
+        document.addEventListener("DOMContentLoaded", function() {
+            // Select the button with class "btn btn7"
+            const button7 = document.querySelector(".btn.btn7");
+
+            // Check if the button exists before clicking
+            if (button7) {
+                button7.click();
+            }
+        });
     </script>
 </body>
 
