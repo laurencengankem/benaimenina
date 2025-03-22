@@ -36,6 +36,20 @@
             margin-left: 30px;
             text-align: center;
         }
+
+        .main-pic{
+            height: 400px;
+            object-fit: cover;
+            background-color: white;
+        }
+
+        @media (max-width: 991px) {
+            .main-pic{
+                height: 300px;
+                object-fit: contain;
+                background-color: white;
+            }
+        }
     </style>
 </head>
 
@@ -222,7 +236,7 @@
             <div class="static-hero-right">
                 <div class="static-hero-img scene" id="scene">
                     <div class="static-hero-img-inner" >
-                        <img src="assets/images/slider/hero-2.jpg" alt="" style="height: 400px; object-fit: cover;">
+                        <img src="assets/images/slider/hero-2.jpg" class="main-pic" alt="">
                     </div>
                     <div class="static-hero-shape-1 wow fadeInDown" data-wow-delay=".5s">
                         <span class="layer" data-depth="0.25">
